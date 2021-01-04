@@ -22,7 +22,7 @@ public class ListaEmpresasServelet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		Banco banco = new Banco();
-		List<Empresa> listaEmpresas = banco.getEmpresas();
+		List<Empresa> listaEmpresas = Banco.getEmpresas();
 		PrintWriter out = response.getWriter();
 		out.println("<html><body>");
 		out.println("<ul>");

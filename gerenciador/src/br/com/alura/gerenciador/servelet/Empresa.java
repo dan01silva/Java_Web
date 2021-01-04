@@ -1,37 +1,39 @@
 package br.com.alura.gerenciador.servelet;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 public class Empresa {
-	
-	private Integer id;
-	private String nome;
-	private Date data;
-	private Double valor;
-	
-	public Date getData() {
+
+	protected Integer id;
+	protected String nome;
+	protected String data;
+
+	public String getData() {
 		return data;
 	}
-	public Double getValor() {
-		return valor;
-	}
+
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 	public String getNome() {
 		return nome;
 	}
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+	public void setData(String dataCadastro){
+		
+		this.data = dataCadastro;
+	}
+	
 	
 	@Override
 	public String toString() {
-	
-		return "Nome da Empresa: "+nome+" Data do Cadastro: "+data ;
+		return "Nome da Empresa: " + nome + " Data do Cadastro: " + data;
 	}
+
 }
