@@ -1,6 +1,7 @@
 package br.com.alura.gerenciador.servelet;
 
 import java.io.IOException;
+import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -39,6 +40,7 @@ public class NovaEmpresaServelet extends HttpServlet {
 		 RequestDispatcher rd = request.getRequestDispatcher("/nova-empresa-criada.jsp");
 		 //passando atributos dentro da request para ele ser acessível de dentro do JSP
 		 request.setAttribute("empresa", empresa.getNome());
+		 request.setAttribute("data", empresa.getData());
 		 rd.forward(request, response);
 		
 		 

@@ -8,10 +8,10 @@
  	<fieldset>
 		<legend>Formulário de cadastro de Empresa </legend>
 			<form method="post" action="/gerenciador/nova-empresa">
-				<label>Nome da Empresa</label>
+				<label>Nome da Empresa </label>
 				<input type="text" required="" name="nome"/>
-				<label>Data do cadastro</label>
-				<input type="text" required="required" name="data" pattern="[0-9]{2}\/[0-9]{2}\/[0-9]{4}$" />
+				<label>Data do cadastro </label>
+				<input type="date" required="required" name="data"/>
 				<!-- <input type="submit" /> -->
 				<button>Cadastrar</button>
 			</form>
