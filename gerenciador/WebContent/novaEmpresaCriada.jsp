@@ -9,8 +9,6 @@ String nome = "Daniel Matos";
 String data = (String)request.getAttribute("data");
 String nomeEmpresa = (String)request.getAttribute("empresa");
 
-SimpleDateFormat formatar = new SimpleDateFormat("dd/MM/yyyy");
-
 System.out.println(data);
 System.out.println(nomeEmpresa);
 
@@ -22,10 +20,12 @@ System.out.println(nomeEmpresa);
 <title>Page JSP</title>
 </head>
 <body>
-	A Empresa <%= nomeEmpresa %> foi cadastrada no dia <%= data %> com sucesso!
+	A Empresa <%= nomeEmpresa %> foi cadastrada : <%= data %> com sucesso!
 	
 	
 	<p><%=nome %></p>
+	
+	<A HREF="listaEmpresas.jsp">Lista das Empresas Cadastradas</A>
 
 </body>
 </html>

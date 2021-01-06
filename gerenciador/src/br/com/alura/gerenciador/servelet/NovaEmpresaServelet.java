@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class NovaEmpresaServelet
  */
 
-@WebServlet("/nova-empresa")
+@WebServlet("/novaEmpresa")
 public class NovaEmpresaServelet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
@@ -23,11 +23,11 @@ public class NovaEmpresaServelet extends HttpServlet {
 			throws ServletException, IOException {
 		System.out.println("Cadastro Sendo realizado...");
 
-		String nomeDaEmpresa = request.getParameter("nome");
+		String nome = request.getParameter("nome");
 		String dataCadastro = request.getParameter("data");
 		
 		Empresa empresa = new Empresa();
-		empresa.setNome(nomeDaEmpresa);
+		empresa.setNome(nome);
 		empresa.setData(dataCadastro);
 		
 		Banco banco = new Banco();
@@ -37,7 +37,7 @@ public class NovaEmpresaServelet extends HttpServlet {
 		 * Atribuindo a função de resposta ao JSP, que rendereiza o HTML antes do servidor enviar a resposta
 		 */
 		
-		 RequestDispatcher rd = request.getRequestDispatcher("/nova-empresa-criada.jsp");
+		 RequestDispatcher rd = request.getRequestDispatcher("/novaEmpresaCriada.jsp");
 		 //passando atributos dentro da request para ele ser acessível de dentro do JSP
 		 request.setAttribute("empresa", empresa.getNome());
 		 request.setAttribute("data", empresa.getData());
