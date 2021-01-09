@@ -25,9 +25,11 @@ public class Empresa {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public void setData(String dataCadastro){
+
+	public void setData(String dataCadastro) {
 		this.data = dataCadastro;
 	}
+
 	@Override
 	public String toString() {
 		return "Nome da Empresa: " + nome + " Data do Cadastro: " + data;

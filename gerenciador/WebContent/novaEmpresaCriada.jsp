@@ -1,16 +1,11 @@
 <%@page import="java.util.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c" %>
 
 <%
 //scriplet
-String nome = "Daniel Matos";
-String data = (String)request.getAttribute("data");
-String nomeEmpresa = (String)request.getAttribute("empresa");
-
-System.out.println(data);
-System.out.println(nomeEmpresa);
 
 %>
 <!DOCTYPE html>
@@ -20,12 +15,11 @@ System.out.println(nomeEmpresa);
 <title>Page JSP</title>
 </head>
 <body>
-	A Empresa <%= nomeEmpresa %> foi cadastrada : <%= data %> com sucesso!
+
+
+<ul> A Empresa ${ empresa } foi cadastrada : ${data} </ul> 
 	
-	
-	<p><%=nome %></p>
-	
-	<A HREF="listaEmpresas.jsp">Lista das Empresas Cadastradas</A>
+<ul> <A HREF="listaEmpresas">Lista das Empresas Cadastradas</A> </ul>
 
 </body>
 </html>

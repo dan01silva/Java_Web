@@ -11,8 +11,19 @@
 <title>Cadastro Empreas</title>
 </head>
 <body>
-		lista de empresas: <br />
-<ul>
+	
+	lista de empresas: <br />
+		
+		<%-- usando apenas tag para acessar os parâmetros do java --%>
+		
+		<ul>
+		<c:forEach items="${empresa}" var="empresa">
+			<li> ${empresa.nome}</li>
+		</c:forEach>
+	</ul>
+
+	<%--	Maneira antiga, com o Scriplet, concatenando HRML e JAVA
+	<ul>
 	<% 
 		List<Empresa> lista = (List<Empresa>)request.getAttribute("empresas");
 		for (Empresa empresa : lista){
@@ -22,7 +33,8 @@
 		</li>
 	<% 
 		}
-	%>
+	%> 
+	--%>
 </ul>
 
 </body>

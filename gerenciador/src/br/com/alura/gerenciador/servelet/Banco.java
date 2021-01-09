@@ -27,9 +27,9 @@ public class Banco {
 	}
 
 	public static List<Empresa> getEmpresas() {
-		if(lista != null) {
+		if (lista != null) {
 			return lista;
 		}
 		return null;
-		}
+	}
 }
