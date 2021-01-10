@@ -1,13 +1,5 @@
-<%@page import="java.util.Date"%>
-<%@page import="java.text.SimpleDateFormat"%>
-<%@page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c" %>
-
-<%
-//scriplet
-
-%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,8 +8,12 @@
 </head>
 <body>
 
-
-<ul> A Empresa ${ empresa } foi cadastrada : ${data} </ul> 
+	<c:if test="${not empty empresa}">
+	
+		Empresa ${ empresa} cadastrada com sucesso em ${data}
+	</c:if>
+	
+<ul> A Empresa ${3 + 5 } foi cadastrada : </ul> 
 	
 <ul> <A HREF="listaEmpresas">Lista das Empresas Cadastradas</A> </ul>
 

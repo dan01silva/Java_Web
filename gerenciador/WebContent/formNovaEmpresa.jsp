@@ -1,6 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<c:url value="/novaEmpresa" var="linkNovaEmpresaServelet" />
-
+<c:url value="/novaEmpresa" var="linkServelet"/> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,14 +8,15 @@
 </head>
 <body>
 	<fieldset>
-		<legend>Formul·rio de cadastro de Empresa </legend>
-
-		<form action="${linkNovaEmpresaServelet}" method="post">
+		<legend>Formul√°rio de cadastro de Empresa </legend>
+		
+		<form action="${linkServelet}" method="post">
 
 			<label>Nome da Empresa </label> <input type="text" required=""
 				name="nome" /> 
 			<label>Data do cadastro </label> <input type="date"
 				required="required" name="data" />
+			<fmt:formatDate value="${empresa.data}" type="both" pattern="dd/MM/yyyy" dateStyle="full"/>
 
 			<!-- <input type="submit" /> -->
 

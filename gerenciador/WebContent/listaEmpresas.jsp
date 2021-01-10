@@ -1,14 +1,13 @@
-<%@page import="java.util.List"%>
-<%@page import="org.eclipse.jdt.internal.compiler.ast.ForeachStatement"%>
-<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@page import="java.util.List"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page import="br.com.alura.gerenciador.servelet.Empresa" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Cadastro Empreas</title>
+<title>Java Standard Taglib</title>
 </head>
 <body>
 	
@@ -21,7 +20,9 @@
 			<li> ${empresa.nome}</li>
 		</c:forEach>
 	</ul>
-
+	
+	
+<%-- usando scriplet --%>
 	<%--	Maneira antiga, com o Scriplet, concatenando HRML e JAVA
 	<ul>
 	<% 
