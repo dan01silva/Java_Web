@@ -16,8 +16,6 @@
 				name="nome" /> 
 			<label>Data do cadastro </label> <input type="date"
 				required="required" name="data" />
-			<fmt:formatDate value="${empresa.data}" type="both" pattern="dd/MM/yyyy" dateStyle="full"/>
-
 			<!-- <input type="submit" /> -->
 
 			<button>Cadastrar</button>
