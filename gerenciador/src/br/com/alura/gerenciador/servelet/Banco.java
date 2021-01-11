@@ -11,10 +11,8 @@ public class Banco {
 	static {
 		Empresa empresa1 = new Empresa();
 		empresa1.setNome("Alura");
-		empresa1.setData("20/11/2000");
 		Empresa empresa2 = new Empresa();
 		empresa2.setNome("Caelum");
-		empresa2.setData("24/02/1964");
 		lista.add(empresa1);
 		System.out.println("Cadastro Alura Realizado");
 		lista.add(empresa2);

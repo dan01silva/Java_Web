@@ -13,9 +13,9 @@
 		Empresa ${ empresa} cadastrada com sucesso em ${data}
 	</c:if>
 	
-<ul> A Empresa ${3 + 5 } foi cadastrada : </ul> 
+
 	
-<ul> <A HREF="listaEmpresas">Lista das Empresas Cadastradas</A> </ul>
+ <A HREF="listaEmpresas">Lista das Empresas Cadastradas</A> 
 
 </body>
 </html>
