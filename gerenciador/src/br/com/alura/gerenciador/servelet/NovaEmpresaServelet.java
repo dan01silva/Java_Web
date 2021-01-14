@@ -22,12 +22,12 @@ public class NovaEmpresaServelet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException{
+			throws ServletException, IOException {
 		System.out.println("Cadastro Sendo realizado...");
 
 		String nome = request.getParameter("nome");
 		String dataString = request.getParameter("data");
-		
+
 		Date date;
 		// fortmatando dataString para DATE.util
 		try {
@@ -35,7 +35,7 @@ public class NovaEmpresaServelet extends HttpServlet {
 			date = f.parse(dataString);
 		} catch (ParseException e) {
 			throw new ServletException("Problema com o método de PARSE na formatação da Data");
- 		}
+		}
 
 		Empresa empresa = new Empresa();
 		empresa.setNome(nome);
@@ -44,17 +44,21 @@ public class NovaEmpresaServelet extends HttpServlet {
 		Banco banco = new Banco();
 		banco.adiciona(empresa);
 
+		request.setAttribute("empresa", empresa.getNome());
+		request.setAttribute("data", empresa.getData());
+
+		response.sendRedirect("listaEmpresas");
+
 		/**
 		 * Atribuindo a função de resposta ao JSP, que rendereiza o HTML antes do
 		 * servidor enviar a resposta
+		 * 
+		 * REQUEST passa os atributos dentro da request para ele ser acessível de dentro do JSP
 		 */
 
-		RequestDispatcher rd = request.getRequestDispatcher("/novaEmpresaCriada.jsp");
-		// passando atributos dentro da request para ele ser acessível de dentro do JSP
-		request.setAttribute("empresa", empresa.getNome());
-		request.setAttribute("data", empresa.getData());
-		rd.forward(request, response);
-
+//		RequestDispatcher rd = request.getRequestDispatcher("/listaEmpresas.jsp");
+//		request.setAttribute("empresa", empresa.getNome());
+//		request.setAttribute("data", empresa.getData());
+//		rd.forward(request, response);
 	}
-
 }

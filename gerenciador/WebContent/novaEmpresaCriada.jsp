@@ -10,12 +10,13 @@
 
 	<c:if test="${not empty empresa}">
 	
-		Empresa ${ empresa} cadastrada com sucesso em ${data}
+		Empresa ${ empresa} cadastrada com sucesso
 	</c:if>
+	<c:if test="${empty empresa}">
 	
-
-	
- <A HREF="listaEmpresas">Lista das Empresas Cadastradas</A> 
+		Nenhuma empresa cadastrada !
+	</c:if>
+	<A HREF="listaEmpresas">Lista das Empresas Cadastradas</A>
 
 </body>
 </html>

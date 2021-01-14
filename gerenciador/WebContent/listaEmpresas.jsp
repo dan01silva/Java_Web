@@ -11,18 +11,27 @@
 <title>Java Standard Taglib</title>
 </head>
 <body>
+
 	
-	lista de empresas: <br />
+	<c:if test="${not empty empresa}">
+	
+		Empresa ${empresa} foi cadastrada com sucesso
+	</c:if>
+
+	lista de empresas: <br/>
 		
 		<%-- usando apenas tag para acessar os parâmetros do java --%>
 		
 		<ul>
-		<c:forEach items="${empresa}" var="empresa">
-			<li> ${empresa.nome} <fmt:formatDate value="${empresa.data}" pattern="dd/MM/yyyy"/></li>
+		<c:forEach items="${empresa}"var="empresa">
+			<li> 
+				${empresa.nome} <fmt:formatDate value="${empresa.data}" pattern="dd/MM/yyyy"/>
+				
+				<A href="/gerenciador/mostraEmpresa"> -Editar Empresa</A>
+				<A href="/gerenciador/atualizarEmpresa"> -Atualizaar Empresa</A>
+			</li>
 		</c:forEach>
 	</ul>
-	
-	
 <%-- usando scriplet --%>
 	<%--	Maneira antiga, com o Scriplet, concatenando HRML e JAVA
 	<ul>

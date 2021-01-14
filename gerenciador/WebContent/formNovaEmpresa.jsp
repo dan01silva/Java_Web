@@ -4,19 +4,18 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Page Cadastro HTML com JSP</title>
+<title>Page Cadastro HTML com EL</title>
 </head>
 <body>
 	<fieldset>
-		<legend>Formulário de cadastro de Empresa </legend>
+		<legend>Formulario de cadastro de Empresa </legend>
 		
 		<form action="${linkServelet}" method="post">
 
 			<label>Nome da Empresa </label> <input type="text" required=""
 				name="nome" /> 
-			<label>Data do cadastro </label> <input type="date"
+			<label>Data do cadastro</label> <input type="text"
 				required="required" name="data" />
-			<!-- <input type="submit" /> -->
 
 			<button>Cadastrar</button>
 		</form>
