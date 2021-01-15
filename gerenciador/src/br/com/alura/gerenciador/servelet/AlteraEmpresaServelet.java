@@ -5,7 +5,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,20 +12,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class NovaEmpresaServelet
+ * Servlet implementation class AlteraEmpresaServelet
  */
-
-@WebServlet("/novaEmpresa")
-public class NovaEmpresaServelet extends HttpServlet {
-
+@WebServlet("/alteraEmpresa")
+public class AlteraEmpresaServelet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("Cadastro Sendo realizado...");
 
 		String nome = request.getParameter("nome");
 		String dataString = request.getParameter("data");
+		String idString = request.getParameter("id");
+		Integer id = Integer.valueOf(idString);
 
 		Date date;
 		// fortmatando dataString para DATE.util
@@ -36,29 +34,17 @@ public class NovaEmpresaServelet extends HttpServlet {
 		} catch (ParseException e) {
 			throw new ServletException("Problema com o método de PARSE na formatação da Data");
 		}
-
-		Empresa empresa = new Empresa();
+		
+		System.out.println("conferindo o ID da empresa alterada: " + id);
+		
+		Banco banco = new Banco();
+		Empresa empresa = banco.buscaEMpresaPelaId(id);
 		empresa.setNome(nome);
 		empresa.setData(date);
-
-		Banco banco = new Banco();
-		banco.adiciona(empresa);
 		
-		request.setAttribute("empresa", empresa.getNome());
-
+		
 		response.sendRedirect("listaEmpresas");
 
-		/**
-		 * Atribuindo a função de resposta ao JSP, que rendereiza o HTML antes do
-		 * servidor enviar a resposta
-		 * 
-		 * REQUEST passa os atributos dentro da request para ele ser acessível de dentro
-		 * do JSP
-		 */
-
-		// RequestDispatcher rd = request.getRequestDispatcher("/listaEmpresas.jsp");
-		// request.setAttribute("empresa", empresa.getNome());
-		// request.setAttribute("data", empresa.getData());
-		// rd.forward(request, response);
 	}
+
 }

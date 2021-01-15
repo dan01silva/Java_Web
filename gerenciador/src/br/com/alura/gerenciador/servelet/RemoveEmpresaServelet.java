@@ -22,7 +22,6 @@ public class RemoveEmpresaServelet extends HttpServlet {
 		
 		Banco.removeEmpresa(id);
 		
-		
 		/**
 		 * ao utilizar o método de redirecionamento de fluxo, não ultilizar barras(/) no endereço dos servelet
 		 */

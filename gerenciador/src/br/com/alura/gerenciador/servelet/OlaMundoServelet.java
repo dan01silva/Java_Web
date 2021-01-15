@@ -9,15 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(urlPatterns = "/ola")
-public class OlaMundoservelet extends HttpServlet {
+@WebServlet(urlPatterns = "/ola", loadOnStartup = 1)
+public class OlaMundoServelet extends HttpServlet {
+	
+	public OlaMundoServelet() {
+		System.out.println("Criando oi Mundo Servelet");
+	}
+	
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
 		PrintWriter out = resp.getWriter();
 		out.println("<html>");
 		out.println("<body>");
-		out.println("Olá Mundo, primeiro teste de Servelet");
+		out.println("Olá Mundo, testando primeiro Servelet");
 		out.println("</body>");
 		out.println("</html>");
 

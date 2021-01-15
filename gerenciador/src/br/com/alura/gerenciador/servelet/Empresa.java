@@ -6,7 +6,7 @@ public class Empresa {
 
 	protected Integer id;
 	protected String nome;
-	protected Date data;
+	protected Date data = new Date();
 
 	public Date getData() {
 		return data;

@@ -8,7 +8,7 @@ public class Banco {
 
 	private static List<Empresa> lista = new ArrayList<Empresa>();
 	private static Integer chaveSequencial = 1;
-	
+
 	static {
 		Empresa empresa = new Empresa();
 		empresa.setId(chaveSequencial++);
@@ -35,39 +35,41 @@ public class Banco {
 		return null;
 	}
 
-		/**
-		 * Método Iterator mais antigo, nos possibilita fazer alterações na lista
-		 * enquanto percoremos ela, neste caso precisava remover uma empresa comparando o número de ID
-		 * do getParametro..
-		 * @since 1.5 
-		 * @param id
-		 */
+	/**
+	 * Método Iterator mais antigo, nos possibilita fazer alterações na lista
+	 * enquanto percoremos ela, neste caso precisava remover uma empresa comparando
+	 * o número de ID do getParametro..
+	 * 
+	 * @since 1.5
+	 * @param id
+	 */
 	public static void removeEmpresa(Integer id) {
 		Iterator<Empresa> it = lista.iterator();
-		while(it.hasNext()) {
+		while (it.hasNext()) {
 			Empresa emp = it.next();
-			if(emp.getId()== id) {
+			if (emp.getId() == id) {
 				it.remove();
-		}
-		
+			}
+
 			/**
-			 * com o for é possivel percorrer a lista mas não se pode fazer alterações nela enquanto a percorre.
+			 * com o for é possivel percorrer a lista mas não se pode fazer alterações nela
+			 * enquanto a percorre.
 			 */
-//		for (Empresa empresa : lista) {
-//			if(empresa.getId()== id) {
-//				lista.remove(empresa);
-//				}
-//			}
+			// for (Empresa empresa : lista) {
+			// if(empresa.getId()== id) {
+			// lista.remove(empresa);
+			// }
+			// }
 		}
 	}
 
-		public static Empresa buscaEMpresaPelaId(Integer id) {
-			for (Empresa empresa : lista) {
-				if(empresa.getId() == id) {
-					return empresa;
-				}
+	public static Empresa buscaEMpresaPelaId(Integer id) {
+		for (Empresa empresa : lista) {
+			if (empresa.getId() == id) {
+				return empresa;
 			}
-			return null;
-			
 		}
+		return null;
+
+	}
 }
