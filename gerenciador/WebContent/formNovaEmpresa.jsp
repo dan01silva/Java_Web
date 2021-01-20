@@ -1,5 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<c:url value="/novaEmpresa" var="linkServelet"/> 
+<c:url value="/entrada" var="linkServelet"/> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,6 +16,7 @@
 				name="nome" /> 
 			<label>Data do cadastro</label> <input type="text"
 				required="required" name="data" />
+			<input type="hidden" name="acao" value="NovaEmpresa" />
 
 			<button>Cadastrar</button>
 		</form>

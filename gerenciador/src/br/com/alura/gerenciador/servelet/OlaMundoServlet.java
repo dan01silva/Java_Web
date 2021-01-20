@@ -3,16 +3,15 @@ package br.com.alura.gerenciador.servelet;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(urlPatterns = "/ola", loadOnStartup = 1)
-public class OlaMundoServelet extends HttpServlet {
+public class OlaMundoServlet extends HttpServlet {
 	
-	public OlaMundoServelet() {
+	public OlaMundoServlet() {
 		System.out.println("Criando oi Mundo Servelet");
 	}
 	

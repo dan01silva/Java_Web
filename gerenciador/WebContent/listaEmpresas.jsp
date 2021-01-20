@@ -2,7 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@page import="java.util.List"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page import="br.com.alura.gerenciador.servelet.Empresa"%>
+<%@ page import="br.com.alura.gerenciador.modelo.Empresa"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
@@ -16,17 +16,15 @@
 	
 		Empresa ${empresa.nome} foi cadastrada com sucesso!
 	</c:if>
-	<ul>
 		lista de empresas:
 		<br />
-	</ul>
 
 	<%-- usando apenas tag para acessar os parâmetros do java --%>
 	<ul>
 		<c:forEach items="${empresas}" var="empresa">
 			<li> ${empresa.nome} <fmt:formatDate value="${empresa.data}" pattern="dd/MM/yyyy"/> 
-			<A href="/gerenciador/mostraEmpresa?id=${empresa.id}"> Editar</A> 
-			<A href="/gerenciador/atualizarEmpresaid=${empresa.id}"> Remover</A>
+			<A href="/gerenciador/entrada?acao=MostraEmpresa&id=${empresa.id}"> Editar</A> 
+			<A href="/gerenciador/entrada?acao=RemoveEmpresa&id=${empresa.id}"> Remover</A>
 			</li>
 		</c:forEach>
 	</ul>
