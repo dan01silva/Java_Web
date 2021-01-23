@@ -19,10 +19,9 @@ public class RemoveEmpresa implements Acao{
 		
 		/**
 		 * ao utilizar o método de redirecionamento de fluxo, não ultilizar barras(/) no endereço dos servelet
+		 * response.sendRedirect("entrada?acao=ListaEmpresas");
 		 */
-		response.sendRedirect("entrada?acao=ListaEmpresas");
 		
-		return "forward:listaEmpresas.jsp";
+		return "redirect:ListaEmpresas";
 	}
-
 }

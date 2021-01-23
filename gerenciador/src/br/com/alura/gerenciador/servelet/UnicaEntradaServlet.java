@@ -43,7 +43,7 @@ public class UnicaEntradaServlet extends HttpServlet {
 		try {
 			Class classe = Class.forName(nomeDaClasse); // carregando a classe com o nome que está sendo passado
 			// instânciado a classe recebida.
-			Acao acao = (Acao) classe.newInstance(); // cria uma instância da classe "abstrata/representação"
+			Acao acao = (Acao) classe.newInstance(); // cria uma instância da representação da  classe
 			nome = acao.executa(request, response);
 		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
 			throw new ServletException(e);
@@ -51,10 +51,10 @@ public class UnicaEntradaServlet extends HttpServlet {
 
 		String[] tipoEEndereco = nome.split(":");
 		if (tipoEEndereco[0].equals("forward")) {
-			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/view/" + tipoEEndereco[1]);
+			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/view/" + tipoEEndereco [1]);
 			rd.forward(request, response);
 		} else {
-			response.sendRedirect(tipoEEndereco[1]);
+			response.sendRedirect("entrada?acao=" + tipoEEndereco [1]);
 		}
 		/*
 		 * String nome = null; if (paramAcao.equals("ListaEmpresas")) {

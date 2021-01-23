@@ -37,6 +37,6 @@ public class AlteraEmpresa implements Acao{
 		empresa.setNome(nome);
 		empresa.setData(date);
 		
-		return "redirect:entrada?acao=ListaEmpresas";
+		return "redirect:ListaEmpresas";
 	}
 }
