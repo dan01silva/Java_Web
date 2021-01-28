@@ -22,6 +22,8 @@
 				<input type="hidden" name="acao" value="AlteraEmpresa" />
 
 			<button>Cadastrar</button>
+			<br/>
+			<c:import url="logoutParcial.jsp"></c:import>
 		</form>
 	</fieldset>
 </body>

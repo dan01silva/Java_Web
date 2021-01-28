@@ -17,6 +17,8 @@
 			<label>Data do cadastro</label> <input type="text"
 				required="required" name="data" />
 			<input type="hidden" name="acao" value="NovaEmpresa" />
+			
+			<c:import url="logoutParcial.jsp"></c:import>
 
 			<button>Cadastrar</button>
 		</form>

@@ -27,6 +27,12 @@
 			<A href="/gerenciador/entrada?acao=RemoveEmpresa&id=${empresa.id}"> Remover</A>
 			</li>
 		</c:forEach>
+		
+		<br/>
+		<A href="/gerenciador/entrada?acao=NovaEmpresa"> Cadastrar Nova Empresa</A>
+		<br/>
+		<A href="/gerenciador/entrada?acao=Logout"> Logout</A>
+		<br/>
 	</ul>
 
 	<%-- usando scriplet --%>

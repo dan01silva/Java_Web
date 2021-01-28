@@ -23,7 +23,8 @@ public class ListaEmpresasComOrdem implements Acao{
 
         lista.sort((e1, e2) -> { return e1.getNome().compareTo(e2.getNome()); });
 
-        request.setAttribute("empresas", lista);
+      //pendurando o atrbuto junto com o request e response para o JSP
+      		request.setAttribute("empresas", lista);
 
         return "forward:listaEmpresas.jsp";
 	}

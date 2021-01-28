@@ -11,6 +11,7 @@ public class Banco {
 	private static Integer chaveSequencial = 1;
 
 	static {
+		System.out.println("Cadastro Alura e Caelum Realizado");
 		Empresa empresa = new Empresa();
 		empresa.setId(chaveSequencial++);
 		empresa.setNome("Alura");
@@ -20,19 +21,16 @@ public class Banco {
 		lista.add(empresa);
 		lista.add(empresa2);
 
-		System.out.println("Cadastro Alura e Caelum Realizado");
-
+		System.out.println("Cadastro usuários Realizados");
 		Usuario u1 = new Usuario();
 		Usuario u2 = new Usuario();
-		u1.setLogin("Nico");
-		u2.setLogin("Ana");
+		u1.setLogin("nico");
+		u2.setLogin("ana");
 		u1.setSenha("1234");
 		u2.setSenha("1234");
 
 		listaUsuarios.add(u1);
 		listaUsuarios.add(u2);
-
-		System.out.println("Cadastro usuários Realizados");
 
 	}
 

@@ -3,7 +3,6 @@ package br.com.alura.gerenciador.acao;
 import java.io.IOException;
 import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,12 +13,19 @@ import br.com.alura.gerenciador.modelo.Empresa;
 public class ListaEmpresas implements Acao{
 	
 	public String executa(HttpServletRequest request,  HttpServletResponse response) throws ServletException, IOException {
+		long comeco = System.currentTimeMillis();
+		
+		
+		System.out.println("Chamando ListaEmpresas");
 		Banco banco = new Banco();
 		List<Empresa> lista = banco.getEmpresas();
 
 		//pendurando o atrbuto junto com o request e response para o JSP
 		request.setAttribute("empresas", lista);
 		
+		long fim = System.currentTimeMillis();
+		System.out.println("Tempo de execução" + (comeco - fim));
+		 
 		return "forward:listaEmpresas.jsp";
 	}
 
