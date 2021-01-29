@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
 import com.thoughtworks.xstream.XStream;
 
 import br.com.alura.gerenciador.modelo.Banco;
@@ -25,21 +26,33 @@ public class EmpresaService extends HttpServlet {
 		
 		List<Empresa> empresas = new Banco().getEmpresas();
 		
-		XStream xstream = new XStream();
+		String accept = request.getHeader("Accept");
 		
-		xstream.alias("empresa", Empresa.class);/*com isso personalizamos a saída para mostrar apenas o nome da classe, 
-		por default ele mostra o full code file name da classe*/ 
+		System.out.println(accept);
 		
-		String xml = xstream.toXML(empresas);
+		if(accept.contains("xml")) {
+			XStream xstream = new XStream();
+			xstream.alias("empresa", Empresa.class);/*com isso personalizamos a saída para mostrar apenas o nome da classe, 
+			por default ele mostra o full code file name da classe*/ 
+			
+			String xml = xstream.toXML(empresas);
+			response.setContentType("application/xml");
+			response.getWriter().print(xml);
+			
+		} else if(accept.endsWith("json")) {
+			Gson gson = new Gson();//Instanciando Json
+			String json = gson.toJson(empresas);//retorna o objeto no formato String
+			
+			response.setContentType("application/json");//Cabeãlho ! nele é informado qual tipo de conteudo está sendo enviado.
+			response.getWriter().print(json);//trazendo método que sabe devolver String Writter e o PRINT que sabe imprimir
+			
+		}else {
+			response.setContentType("application/json");
+			response.getWriter().print("{message : 'no content'}");
+		}
+	
 		
-		response.setContentType("application/xml");
-		response.getWriter().print(xml);
-		
-//		Gson gson = new Gson();//Instanciando Json
-//		String json = gson.toJson(empresas);//retorna o objeto no formato String
-//		
-//		response.setContentType("application/json");//Cabeãlho ! nele é informado qual tipo de conteudo está sendo enviado.
-//		response.getWriter().print(json);//trazendo método que sabe devolver String Writter e o PRINT que sabe imprimir
+
 		
 	}
 }
