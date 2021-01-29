@@ -14,14 +14,26 @@ import javax.servlet.annotation.WebFilter;
  */
 @WebFilter("/entrada")
 public class MonitoramentoFilter implements Filter {
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+
+	@Override
+	public void init(FilterConfig filterConfig) throws ServletException {
+		Filter.super.init(filterConfig);
+	}
+
+	@Override
+	public void destroy() {
+		Filter.super.destroy();
+	}
+
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+			throws IOException, ServletException {
 		System.out.println("Monitoramento Filter");
 		long comeco = System.currentTimeMillis();
-		
+
 		String acao = request.getParameter("acao");
-		//executa a açao "chain" = cadeia
+		// executa a açao "chain" = cadeia
 		chain.doFilter(request, response);
-		
+
 		long fim = System.currentTimeMillis();
 		System.out.println("Tempo de execução da ação " + acao + " -> " + (fim - comeco));
 	}
